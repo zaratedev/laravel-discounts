@@ -1,0 +1,14 @@
+
+# Composer
+composer.phar
+/build
+/html
+/vendor
+composer.lock
+.phpunit.result.cache
+
+# OS
+.DS_Store
+Thumbs.db
+.idea/
+.tags
