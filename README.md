@@ -1,4 +1,4 @@
-# Laravel Discounts 
+# Laravel Discounts
 
 This package is inspired by [Laravel Vouchers](https://github.com/beyondcode/laravel-vouchers) by Marcel Pociot.
 
@@ -20,7 +20,7 @@ class Item extends Model
 ...
 
 $item = Item::find(1);
-$item$->createDiscount(100);
+$item->createDiscount(100);
 
 ```
 
