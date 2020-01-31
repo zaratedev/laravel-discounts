@@ -3,6 +3,7 @@
 namespace Zaratedev\Discounts\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use Zaratedev\Discounts\Exceptions\DiscountExpired;
 
 /**
  * @property \Illuminate\Support\Carbon $redeemed_at
@@ -11,10 +12,24 @@ use Illuminate\Database\Eloquent\Builder;
 trait Redeemable
 {
     /**
+     * Initialize the Redeemable trait.
+     *
+     * @return void
+     */
+    public function initializeRedeemable(): void
+    {
+        $this->addObservableEvents('redeeming', 'redeemed');
+    }
+
+    /**
      * @return bool
      */
     public function redeem(): bool
     {
+        if ($this->isExpired()) {
+            throw DiscountExpired::create($this);
+        }
+
         if ($this->isRedeemed() || $this->fireModelEvent('redeeming') === false) {
             return false;
         }

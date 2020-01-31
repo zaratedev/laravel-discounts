@@ -7,7 +7,16 @@ use Zaratedev\Discounts\Models\Discount;
 
 class Discounts
 {
-    public static function create(Model $model, int $quantity = 1, $amount, $expires_at = null)
+    /**
+     * Create discounts.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  int $quantity
+     * @param  int $amount
+     * @param  null $expires_at
+     * @return array
+     */
+    public static function create(Model $model, int $quantity = 1, int $amount, $expires_at = null)
     {
         $discounts = [];
 
