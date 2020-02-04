@@ -39,7 +39,7 @@ The package will automatically register itself.
 You can publish the migrations
 
 ```bash
-php artisan vendor:publish --provider=Zaratedev\Discounts\DiscountsServiceProvider --tag="migrations"
+php artisan vendor:publish --provider="Zaratedev\Discounts\DiscountsServiceProvider" --tag="migrations"
 ```
 
 Execute the command
