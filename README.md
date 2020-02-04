@@ -1,5 +1,7 @@
 # Laravel Discounts
 
+[![Build Status](https://travis-ci.org/zaratedev/laravel-discounts.svg?branch=master)](https://travis-ci.org/zaratedev/laravel-discounts)
+
 This package is inspired by [Laravel Vouchers](https://github.com/beyondcode/laravel-vouchers) by Marcel Pociot.
 
 Apply discounts to your Eloquent Models on Laravel, It can be used when we need to associate discounts with a certain amount to an eloquent model.
