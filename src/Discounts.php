@@ -16,7 +16,7 @@ class Discounts
      * @param  null $expires_at
      * @return array
      */
-    public static function create(Model $model, int $quantity = 1, int $amount, $expires_at = null)
+    public static function create(Model $model, int $quantity, int $amount, $expires_at = null)
     {
         $discounts = [];
 

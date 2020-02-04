@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Zaratedev\Discounts\Models\Discount;
 use Zaratedev\Discounts\Tests\Models\Item;
 
-class DiscountableTest extends TestCase
+class DiscontableTest extends TestCase
 {
     use RefreshDatabase;
 
