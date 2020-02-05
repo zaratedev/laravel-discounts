@@ -3,7 +3,7 @@
 namespace Zaratedev\Discounts\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Zaratedev\Discounts\Discounts;
+use Zaratedev\Discounts\Facades\Discounts;
 use Zaratedev\Discounts\Models\Discount;
 
 trait Discountable

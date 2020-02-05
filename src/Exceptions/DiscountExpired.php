@@ -26,8 +26,6 @@ class DiscountExpired extends \Exception
     }
 
     /**
-     * Undocumented function.
-     *
      * @param  \App\Models\Discount $discount
      * @return mixed
      */
