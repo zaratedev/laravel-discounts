@@ -29,7 +29,7 @@ class DiscountableTest extends TestCase
 
         $this->assertEquals(0, $item->discounts()->count());
 
-        $discounts = $item->createDiscounts(10, 100);
+        $item->createDiscounts(10, 100);
 
         $this->assertEquals(10, $item->discounts()->count());
     }
@@ -43,6 +43,6 @@ class DiscountableTest extends TestCase
 
         $this->assertEquals(1, $item->discounts()->count());
         $this->assertInstanceOf(Discount::class, $discount);
-        $this->assertSame($discount->discountable->id, $item->id);
+        $this->assertSame($discount->discountable_id, $item->id);
     }
 }

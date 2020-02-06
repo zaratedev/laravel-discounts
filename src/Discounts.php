@@ -10,13 +10,13 @@ class Discounts
     /**
      * Create discounts.
      *
-     * @param  \Illuminate\Database\Eloquent\Model $model
-     * @param  int $quantity
-     * @param  int $amount
-     * @param  null $expires_at
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  int  $quantity
+     * @param  int  $amount
+     * @param  \Illuminate\Support\Carbon|null  $expires_at
      * @return array
      */
-    public function create(Model $model, int $quantity, int $amount, $expires_at = null)
+    public function create(Model $model, int $quantity, int $amount, $expires_at = null): array
     {
         $discounts = [];
 
