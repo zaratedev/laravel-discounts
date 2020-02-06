@@ -6,11 +6,9 @@ use Zaratedev\Discounts\Models\Discount;
 
 class DiscountExpired extends \Exception
 {
-    protected $message = 'The Discount is already expired.';
+    protected $message = 'The discount is already expired.';
 
     /**
-     * The discount.
-     *
      * @var \App\Models\Discount
      */
     protected $discount;
@@ -26,7 +24,7 @@ class DiscountExpired extends \Exception
     }
 
     /**
-     * @param  \App\Models\Discount $discount
+     * @param  \App\Models\Discount  $discount
      * @return mixed
      */
     public static function create(Discount $discount)

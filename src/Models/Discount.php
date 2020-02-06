@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Zaratedev\Discounts\Traits\Redeemable;
 
+/**
+ * @property int $id
+ * @property int $discountable_id
+ * @property string $discountable_type
+ * @property int $amount
+ * @property \Illuminate\Support\Carbon $redeemed_at
+ * @property \Illuminate\Support\Carbon $expires_at
+ * @property \Illuminate\Support\Carbon $created_at
+ * @property \Illuminate\Support\Carbon $updated_at
+ */
 class Discount extends Model
 {
     use Redeemable;
