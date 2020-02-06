@@ -1,6 +1,8 @@
 # Laravel Discounts
 
 [![Build Status](https://travis-ci.org/zaratedev/laravel-discounts.svg?branch=master)](https://travis-ci.org/zaratedev/laravel-discounts)
+[![Total Downloads](https://poser.pugx.org/zaratedev/laravel-discounts/downloads)](https://packagist.org/packages/zaratedev/laravel-discounts)
+[![License](https://poser.pugx.org/zaratedev/laravel-discounts/license)](https://packagist.org/packages/zaratedev/laravel-discounts)
 
 This package is inspired by [Laravel Vouchers](https://github.com/beyondcode/laravel-vouchers) by Marcel Pociot.
 
