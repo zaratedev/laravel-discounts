@@ -1,16 +1,38 @@
 language: php
 
-php:
-  - 7.2
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.1
+      env: LARAVEL='5.7.*' COMPOSER_FLAGS='--prefer-stable'
+    - php: 7.2
+      env: LARAVEL='6.*' COMPOSER_FLAGS='--prefer-lowest'
+    - php: 7.2
+      env: LARAVEL='6.*' COMPOSER_FLAGS='--prefer-stable'
+    - php: 7.3
+      env: LARAVEL='6.*' COMPOSER_FLAGS='--prefer-lowest'
+    - php: 7.3
+      env: LARAVEL='6.*' COMPOSER_FLAGS='--prefer-stable'
+    - php: 7.2
+      env: LARAVEL='7.*' COMPOSER_FLAGS='--prefer-lowest'
+    - php: 7.2
+      env: LARAVEL='7.*' COMPOSER_FLAGS='--prefer-stable'
+    - php: 7.3
+      env: LARAVEL='7.*' COMPOSER_FLAGS='--prefer-lowest'
+    - php: 7.3
+      env: LARAVEL='7.*' COMPOSER_FLAGS='--prefer-stable'
+    - php: 7.3
+      env: LARAVEL='8.*' COMPOSER_FLAGS='--prefer-lowest'
+    - php: 7.3
+      env: LARAVEL='8.*' COMPOSER_FLAGS='--prefer-stable'
 
-env:
-  matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
+before_install:
+  - composer self-update
+  - composer require --no-update --no-interaction "illuminate/database:${LARAVEL}" "illuminate/support:${LARAVEL}"
 
-before_script:
-  - travis_retry composer self-update
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+install:
+  - phpenv config-rm xdebug.ini
+  - composer update ${COMPOSER_FLAGS} --no-interaction --no-suggest --prefer-dist
 
 script:
   - vendor/bin/phpunit
