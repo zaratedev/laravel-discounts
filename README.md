@@ -14,7 +14,7 @@ Any model
 
 <?php
 
-use Zaratedev\Discounts\Trait\Discountable;
+use Zaratedev\Discounts\Traits\Discountable;
 
 class Item extends Model
 {
