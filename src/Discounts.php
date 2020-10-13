@@ -18,17 +18,13 @@ class Discounts
      */
     public function create(Model $model, int $quantity, int $amount, $expires_at = null): array
     {
-        $discounts = [];
-
-        foreach (range(1, $quantity) as $i) {
-            $discounts[] = Discount::create([
+        return array_map(function () use ($model, $amount, $expires_at) {
+            return Discount::create([
                 'discountable_id' => $model->getKey(),
                 'discountable_type' => $model->getMorphClass(),
                 'amount' => $amount,
                 'expires_at' => $expires_at,
             ]);
-        }
-
-        return $discounts;
+        }, range(1, $quantity));
     }
 }
