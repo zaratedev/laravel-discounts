@@ -27,6 +27,8 @@ $item = Item::find(1);
 $item->createDiscount(100);
 
 ```
+## Requirements
+The Laravel Discounts package requires PHP >= 7.2 and Laravel >= 5.8.
 
 ## Installation
 
