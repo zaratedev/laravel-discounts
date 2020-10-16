@@ -1,6 +1,6 @@
 # Laravel Discounts
 
-[![Build Status](https://travis-ci.org/zaratedev/laravel-discounts.svg?branch=master)](https://travis-ci.org/zaratedev/laravel-discounts)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/zaratedev/laravel-discounts/tests?label=Tests)
 [![Total Downloads](https://poser.pugx.org/zaratedev/laravel-discounts/downloads)](https://packagist.org/packages/zaratedev/laravel-discounts)
 [![License](https://poser.pugx.org/zaratedev/laravel-discounts/license)](https://packagist.org/packages/zaratedev/laravel-discounts)
 

@@ -6,11 +6,12 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        php: [7.4, 7.3, 7.2]
-        laravel: [8.*, 7.*, 6.*, 5.8.*]
-        dependency-version: [prefer-stable]
         os: [ubuntu-latest]
+        php: [7.2, 7.3, 7.4]
+        laravel: [5.8.*, 6.*, 7.*, 8.*]
+        dependency-version: [prefer-stable]
         include:
           - laravel: 8.*
             testbench: 6.*
@@ -20,21 +21,15 @@ jobs:
             testbench: 4.*
           - laravel: 5.8.*
             testbench: 3.8.*
+        exclude:
+          - laravel: 8.*
+            php: 7.2
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: laravel-discounts
-        ports:
-          - 3306
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Cache dependencies
         uses: actions/cache@v1
@@ -43,10 +38,10 @@ jobs:
           key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, mysql, mysqli, pdo_mysql, bcmath, soap, intl, gd, exif, iconv, imagick
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
           coverage: none
 
       - name: Install dependencies
@@ -56,5 +51,3 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
